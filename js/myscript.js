@@ -7,6 +7,8 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 // richiamo il div in cui andrò a inserire i numeri casuali generati
 const containerRandomPcNumber = document.getElementById("container_random_pc_number");
 
+// richiamo il container in cui l'user inserirà la soluzione
+const containerSolutionUser = document.getElementById("solution_user_container");
 
 // genero 5 numeri casuali e lì inserisco in un array
 const arrRandomPcNum = genArrNumUnicRandomMinMax (5, 1, 50);
@@ -27,8 +29,8 @@ for (let i = 0; i < arrRandomPcNum.length; i++) {
 }
 
 // creo la variabile del tempo e dei secondi
-let timer;
 let second = 5;
+let timer;
 
 // richiamo lo span in cui vado a inserire i secondi
 let time = document.querySelector("span.time");
@@ -42,7 +44,9 @@ timer = setInterval(
             time.innerHTML = second;
         } else {
             containerRandomPcNumber.classList.add("none");
+            containerSolutionUser.classList.add("dblock");
             clearInterval(timer);
+
         }
 
     }, 1000);

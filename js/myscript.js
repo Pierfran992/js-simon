@@ -13,7 +13,7 @@ const containerSolutionUser = document.querySelector("div.solution_user_containe
 // genero 5 numeri casuali e lì inserisco in un array
 // const arrRandomPcNum = genArrNumUnicRandomMinMax (5, 1, 50);
 // console.log(arrRandomPcNum);
-const arrRandomPcNum = [1, 2 ,3 ,4 ,5];
+const arrRandomPcNum = [1, 2 ,3 ,4 ,5]; //debug
 
 // inserisco nel DOM i numeri dell'array
 for (let i = 0; i < arrRandomPcNum.length; i++) {
@@ -65,10 +65,11 @@ button.addEventListener("click",
         let inputNum = document.getElementById("input").value;
         console.log(inputNum);
         arrSolutionNum.push(inputNum);
+        console.log(arrSolutionNum);
     }
 );
 
-console.log(arrSolutionNum);
+
 
 
 

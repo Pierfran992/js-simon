@@ -55,29 +55,21 @@ timer = setInterval(
 // creo l'array vuoto
 const arrSolutionNum = [];
 
-// creo il ciclo con cui andrò a inserire i valori inseriti nell'input nell'array vuoto
-for (let k = 0; k < arrRandomPcNum.length; k++) {
+// richiamo il pulsante per attivare la funzione
+const button = document.getElementById("invia");
 
-    // richiamo il bottone con cui l'utente invierà i numeri inseriti
-    const button = document.getElementById("invia");
-    
-    // creo l'evento al click sul pulsante invia
-    button.addEventListener("click",
-        function () {
-
-            // richiamo l'input
-            let input = document.getElementById("input").value;
-
-            if(arrRandomPcNum.includes(input)) {
-                arrSolutionNum.push(input);
-            }
-
-            return arrSolutionNum;
-        }
-    );
-}
+// creo l'evento al click del bottone
+button.addEventListener("click",
+    // creo la funzione per inserire nell'array delle soluzioni i valori inseriti
+    function () {
+        let inputNum = document.getElementById("input").value;
+        console.log(inputNum);
+        arrSolutionNum.push(inputNum);
+    }
+);
 
 console.log(arrSolutionNum);
+
 
 
 

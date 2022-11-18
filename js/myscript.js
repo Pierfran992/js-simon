@@ -29,7 +29,7 @@ for (let i = 0; i < arrRandomPcNum.length; i++) {
 }
 
 // creo la variabile del tempo e dei secondi
-let second = 1;
+let second = 30;
 let timer;
 
 // richiamo lo span in cui vado a inserire i secondi

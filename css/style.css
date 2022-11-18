@@ -23,18 +23,18 @@
     margin-bottom: 30px;
 }
 
-#solution_user_container {
+.solution_user_container {
     display: none;
 }
 
-.container > p, #solution_user_container {
+.container > p, .solution_user_container {
     margin: 30px 0;
 }
 
-.none, #solution_user_container {
+.none {
     display: none;
 }
 
 .dblock {
-    display: block;
+    display: inline-block;
 }

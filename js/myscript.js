@@ -8,11 +8,12 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 const containerRandomPcNumber = document.getElementById("container_random_pc_number");
 
 // richiamo il container in cui l'user inserirà la soluzione
-const containerSolutionUser = document.getElementById("solution_user_container");
+const containerSolutionUser = document.querySelector("div.solution_user_container");
 
 // genero 5 numeri casuali e lì inserisco in un array
-const arrRandomPcNum = genArrNumUnicRandomMinMax (5, 1, 50);
-console.log(arrRandomPcNum);
+// const arrRandomPcNum = genArrNumUnicRandomMinMax (5, 1, 50);
+// console.log(arrRandomPcNum);
+const arrRandomPcNum = [1, 2 ,3 ,4 ,5];
 
 // inserisco nel DOM i numeri dell'array
 for (let i = 0; i < arrRandomPcNum.length; i++) {
@@ -29,7 +30,7 @@ for (let i = 0; i < arrRandomPcNum.length; i++) {
 }
 
 // creo la variabile del tempo e dei secondi
-let second = 5;
+let second = 1;
 let timer;
 
 // richiamo lo span in cui vado a inserire i secondi
@@ -50,6 +51,34 @@ timer = setInterval(
         }
 
     }, 1000);
+
+// creo l'array vuoto
+const arrSolutionNum = [];
+
+// creo il ciclo con cui andrò a inserire i valori inseriti nell'input nell'array vuoto
+for (let k = 0; k < arrRandomPcNum.length; k++) {
+
+    // richiamo il bottone con cui l'utente invierà i numeri inseriti
+    const button = document.getElementById("invia");
+    
+    // creo l'evento al click sul pulsante invia
+    button.addEventListener("click",
+        function () {
+
+            // richiamo l'input
+            let input = document.getElementById("input").value;
+
+            if(arrRandomPcNum.includes(input)) {
+                arrSolutionNum.push(input);
+            }
+
+            return arrSolutionNum;
+        }
+    );
+}
+
+console.log(arrSolutionNum);
+
 
 
 

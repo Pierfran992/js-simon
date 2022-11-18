@@ -11,9 +11,8 @@ const containerRandomPcNumber = document.getElementById("container_random_pc_num
 const containerSolutionUser = document.querySelector("div.solution_user_container");
 
 // genero 5 numeri casuali e lì inserisco in un array
-// const arrRandomPcNum = genArrNumUnicRandomMinMax (5, 1, 50);
-// console.log(arrRandomPcNum);
-const arrRandomPcNum = [1, 2 ,3 ,4 ,5]; //debug
+const arrRandomPcNum = genArrNumUnicRandomMinMax (5, 1, 50);
+console.log(arrRandomPcNum);
 
 // inserisco nel DOM i numeri dell'array
 for (let i = 0; i < arrRandomPcNum.length; i++) {
@@ -62,24 +61,27 @@ const button = document.getElementById("invia");
 button.addEventListener("click",
     // creo la funzione per inserire nell'array delle soluzioni i valori inseriti
     function () {
-        let inputNum = document.getElementById("input").value;
+        let inputNum = parseInt(document.getElementById("input").value);
+        document.getElementById("input").value = "";
         console.log(inputNum);
         arrSolutionNum.push(inputNum);
         console.log(arrSolutionNum);
+
+        // faccio un controllo sul arrSolutionNum
+        if (arrSolutionNum.length == arrRandomPcNum.length) {
+
+            let elemUguali = arrayElementiUguali(arrRandomPcNum, arrSolutionNum);
+            console.log("hai indovinato " + elemUguali.length + " numeri");
+            // .map scandisce tutti gli elementi di un array come il ciclo for
+            // elem corrisponde ad array[i]
+            console.log("i numeri indovinati sono " + elemUguali.map(elem => elem));
+
+            // richiamo il p dove inserire la soluzione
+            let solution = document.getElementById("solution");
+            solution.innerHTML = `Hai indovinato ${elemUguali.length} numeri e sono ${elemUguali.map(elem => elem)}.`;
+        }
     }
 );
-
-
-
-
-
-
-
-
-
-
-
-
 
 // FUNZIONI
 // Creo la funzione per generare vari elementi con classi o id
@@ -113,4 +115,20 @@ function genArrNumUnicRandomMinMax (maxElement, minNum, maxNum) {
 
     // ritorno l'array generato
     return arrNumUnicRandom;
+}
+
+// creo una funzione per controllare gli elementi di due array sono uguali
+function arrayElementiUguali (array1, array2) {
+
+    // array risultato
+    let elementiUguali = [];
+
+    for (let i = 0; i < array1.length; i++) {
+
+        if (array1[i] === array2[i]) {
+            elementiUguali.push(array1[i]);
+        }
+    }
+
+    return elementiUguali;
 }
